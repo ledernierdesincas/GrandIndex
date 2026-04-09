@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="tout projets et notes importantes par LeDernierDesIncas. Le Grand Index est un moteur de recherche efficace mais contenant peu de contenu.">
+<meta name="keywords" content="LeDernierDesIncas, le dernier des incas, index, grand index, projets, texte, note, 3D, dessin 3D, codes, jeux vidéos">
+<meta name="author" content="LeDernierDesIncas">    
+<meta name = "viewport" content = "width=device-width, initial-scale =1.0">
+<title>Le Grand Index | LeDernierDesIncas</title>
+<!--
+<div class="box"><b>titre</b><br>type - année - Collaborateurs:<br>URL</div>
+-->
+<style>
+    body {
+        font-family: Arial;
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+
+    #search {
+        width: 95%;
+        padding: 10px;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .box {
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        transition: 0.3s;
+    }
+</style>
+</head>
+
+<body>
+<h1>le Grand Index</h1>
+<h2>Le Dernier Des Incas</h2>
+<input type="text" id="search" placeholder="Rechercher...">
+<h3>meilleurs résultats:</h3>
+
+<div class="container" id="container">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="box"><b>Support pour servo-moteur Hiwonder 6V</b><br>3D - 2026<br>URL</div>
+    <div class="box"><b>Contre l'utilisation abusive de L'IA</b><br>texte - 2026 <br>plus tard</div>
+</div>
+
+<script>
+const searchInput = document.getElementById("search");
+const container = document.getElementById("container");
+const boxes = Array.from(document.querySelectorAll(".box"));
+
+searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
+
+    const scored = boxes.map(box => {
+        const text = box.textContent.toLowerCase();
+        let score = 0;
+
+        // Score simple : nombre d'occurrences du mot recherché
+        if (query.length > 0) {
+            const words = query.split(" ");
+            words.forEach(word => {
+                if (text.includes(word)) {
+                    score++;
+                }
+            });
+        }
+
+        return { box, score };
+    });
+
+    // Trier par score décroissant
+    scored.sort((a, b) => b.score - a.score);
+
+    // Réafficher dans le bon ordre
+    container.innerHTML = "";
+
+    scored.forEach(item => {
+        // Si recherche vide ou score > 0, on affiche
+        if (query === "" || item.score > 0) {
+            container.appendChild(item.box);
+        }
+    });
+});
+</script>
+
+</body>
+</html>
