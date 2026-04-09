@@ -3,13 +3,13 @@
 
   <!--seule page-->
   <url>
-    <loc>https://ledernierdesincas.github.io/solidaire/</loc>
+    <loc>https://ledernierdesincas.github.io/GrandIndex/</loc>
     <priority>1.0</priority>
     <changefreq>daily</changefreq>
   </url>
 
   <url>
-    <loc>https://ledernierdesincas.github.io/solidaire/</loc>
+    <loc>https://ledernierdesincas.github.io/GrandIndex/antiIA</loc>
     <priority>0.1</priority>
     <changefreq>daily</changefreq>
   </url>
