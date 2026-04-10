@@ -13,6 +13,7 @@
     <priority>0.1</priority>
     <changefreq>daily</changefreq>
   </url>
+  
   <!-- autres pages potentielles -->
   <!-- priority 1.0 = max, 0.1 = min -->
 </urlset>
